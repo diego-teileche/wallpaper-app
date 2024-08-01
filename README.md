@@ -8,6 +8,10 @@ This is a Wallpaper App built by `Diego Tech` by using:
 
 ## Libraries I used for this App 🚀
 
+- React Native Reanimated
+- Expo Vector Icons
+- Expo Linear Gradient
+
 ### One Message for EveryOne 🔥
 
 > [!TIP]
