@@ -6,9 +6,9 @@ interface colorsProps {
 }
 
 interface fontWeightsProps {
-	medium: string
-	semibold: string
-	bold: string
+	medium: any
+	semibold: any
+	bold: any
 }
 
 interface radiusProps {
