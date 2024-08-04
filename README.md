@@ -11,6 +11,8 @@ This is a Wallpaper App built by `Diego Tech` by using:
 - React Native Reanimated
 - Expo Vector Icons
 - Expo Linear Gradient
+- Axios
+- React Native Dot Env
 
 ### One Message for EveryOne 🔥
 
