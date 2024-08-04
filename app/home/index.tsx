@@ -32,7 +32,11 @@ const HomeScreen = () => {
 		let res = await apiCall(params)
 
 		if (res?.success && res?.data?.hits) {
-			setImages([...res.data.hits])
+			if (append) {
+				setImages([...images, ...res.data.hits])
+			} else {
+				setImages([...res.data.hits])
+			}
 		}
 	}
 
