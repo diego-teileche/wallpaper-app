@@ -13,6 +13,9 @@ This is a Wallpaper App built by `Diego Tech` by using:
 - Expo Linear Gradient
 - Axios
 - React Native Dot Env
+- Shopify FlashList
+- Expo Image
+- Expo Dev Client
 
 ### One Message for EveryOne 🔥
 
