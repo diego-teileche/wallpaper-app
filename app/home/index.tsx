@@ -34,6 +34,7 @@ const HomeScreen = () => {
 	const [activeCategory, setActiveCategory] = useState(null)
 	const [images, setImages] = useState<any>([])
 	const searchInputRef = useRef<TextInput>(null)
+	const modalRef = useRef<any>(null)
 
 	useEffect(() => {
 		fetchImages()
@@ -43,7 +44,6 @@ const HomeScreen = () => {
 		params: fetchImagesParamsProps = { page: 1 },
 		append = false
 	) => {
-		console.log("Params: ", params, append)
 		let res = await apiCall(params)
 
 		if (res?.success && res?.data?.hits) {
@@ -93,6 +93,10 @@ const HomeScreen = () => {
 
 	const handleTextDebounce = useCallback(debounce(handleSearch, 400), [])
 
+	const openFilterModal = () => modalRef?.current?.present()
+
+	const closeFilterModal = () => modalRef?.current?.close()
+
 	return (
 		<View style={[styles.container, { paddingTop }]}>
 			<StatusBar style="dark" />
@@ -102,7 +106,7 @@ const HomeScreen = () => {
 					<Text style={styles.title}>Pixels</Text>
 				</Pressable>
 
-				<Pressable>
+				<Pressable onPress={openFilterModal}>
 					<FontAwesome6
 						name="bars-staggered"
 						size={22}
@@ -153,7 +157,7 @@ const HomeScreen = () => {
 				<View>{images.length > 0 && <ImageGrid images={images} />}</View>
 			</ScrollView>
 
-			<FiltersModal />
+			<FiltersModal modalRef={modalRef} />
 		</View>
 	)
 }
