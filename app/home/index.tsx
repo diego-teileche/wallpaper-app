@@ -16,6 +16,7 @@ import Categories from "@/components/Categories"
 import { apiCall } from "@/api"
 import ImageGrid from "@/components/ImageGrid"
 import { debounce } from "lodash"
+import FiltersModal from "@/components/FiltersModal"
 
 interface fetchImagesParamsProps {
 	page: number
@@ -151,6 +152,8 @@ const HomeScreen = () => {
 
 				<View>{images.length > 0 && <ImageGrid images={images} />}</View>
 			</ScrollView>
+
+			<FiltersModal />
 		</View>
 	)
 }

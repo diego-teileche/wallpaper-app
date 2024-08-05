@@ -15,8 +15,8 @@ This is a Wallpaper App built by `Diego Tech` by using:
 - React Native Dot Env
 - Shopify FlashList
 - Expo Image
-- Expo Dev Client
 - Lodash
+- React Native Bottom Sheet
 
 ### One Message for EveryOne 🔥
 
