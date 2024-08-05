@@ -14,6 +14,7 @@ import { StatusBar } from "expo-status-bar"
 import { hp, wp } from "@/helpers/common"
 import Categories from "@/components/Categories"
 import { apiCall } from "@/api"
+import ImageGrid from "@/components/ImageGrid"
 
 const HomeScreen = () => {
 	const { top } = useSafeAreaInsets()
@@ -28,7 +29,7 @@ const HomeScreen = () => {
 		fetchImages()
 	}, [])
 
-	const fetchImages = async (params = { page: 1 }, append = true) => {
+	const fetchImages = async (params = { page: 1 }, append = false) => {
 		let res = await apiCall(params)
 
 		if (res?.success && res?.data?.hits) {
@@ -95,6 +96,8 @@ const HomeScreen = () => {
 						handleChangeCategory={handleChangeCategory}
 					/>
 				</View>
+
+				<View>{images.length > 0 && <ImageGrid images={images} />}</View>
 			</ScrollView>
 		</View>
 	)
