@@ -17,6 +17,12 @@ import { apiCall } from "@/api"
 import ImageGrid from "@/components/ImageGrid"
 import { debounce } from "lodash"
 
+interface fetchImagesParamsProps {
+	page: number
+	q?: string
+	category?: string
+}
+
 var page = 1
 
 const HomeScreen = () => {
@@ -33,7 +39,7 @@ const HomeScreen = () => {
 	}, [])
 
 	const fetchImages = async (
-		params: { page: number; q?: string } = { page: 1 },
+		params: fetchImagesParamsProps = { page: 1 },
 		append = false
 	) => {
 		console.log("Params: ", params, append)
@@ -48,7 +54,17 @@ const HomeScreen = () => {
 		}
 	}
 
-	const handleChangeCategory = (cat: any) => setActiveCategory(cat)
+	const handleChangeCategory = (cat: any) => {
+		setActiveCategory(cat)
+		clearSearch()
+		setImages([])
+		page = 1
+		let params: fetchImagesParamsProps = { page }
+
+		if (cat) params.category = cat
+
+		fetchImages(params, false)
+	}
 
 	const handleSearch = (text: string) => {
 		setSearch(text)
@@ -56,6 +72,7 @@ const HomeScreen = () => {
 		if (text.length > 2) {
 			page = 1
 			setImages([])
+			setActiveCategory(null)
 			fetchImages({ page, q: text })
 		}
 
@@ -63,14 +80,15 @@ const HomeScreen = () => {
 			page = 1
 			searchInputRef?.current?.clear()
 			setImages([])
-			fetchImages({ page })
+			setActiveCategory(null)
+			fetchImages({ page }, false)
 		}
 	}
 
-	/* const clearSearch = () => {
+	const clearSearch = () => {
 		setSearch("")
 		searchInputRef?.current?.clear()
-	} */
+	}
 
 	const handleTextDebounce = useCallback(debounce(handleSearch, 400), [])
 
