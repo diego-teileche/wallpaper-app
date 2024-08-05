@@ -16,6 +16,7 @@ This is a Wallpaper App built by `Diego Tech` by using:
 - Shopify FlashList
 - Expo Image
 - Expo Dev Client
+- Lodash
 
 ### One Message for EveryOne 🔥
 
