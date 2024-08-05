@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from "react-native"
 import React, { useMemo } from "react"
 import { BottomSheetModal, BottomSheetView } from "@gorhom/bottom-sheet"
+import CustomBackdrop from "./CustomBackdrop"
 
 const FiltersModal = ({ modalRef }: any) => {
-	const snapPoints = useMemo(() => ["25%", "50%"], [])
+	const snapPoints = useMemo(() => ["50%", "75%"], [])
 
 	return (
 		<BottomSheetModal
@@ -11,6 +12,7 @@ const FiltersModal = ({ modalRef }: any) => {
 			index={0}
 			snapPoints={snapPoints}
 			enablePanDownToClose={true}
+			backdropComponent={CustomBackdrop}
 			// onChange={handleSheetChanges}
 		>
 			<BottomSheetView style={styles.contentContainer}>
