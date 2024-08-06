@@ -13,10 +13,11 @@ This is a Wallpaper App built by `Diego Tech` by using:
 - Expo Linear Gradient
 - Axios
 - React Native Dot Env
-- Shopify FlashList
+- FlashList
 - Expo Image
 - Lodash
 - React Native Bottom Sheet
+- Expo Blur
 
 ### One Message for EveryOne 🔥
 
