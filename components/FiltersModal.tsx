@@ -1,4 +1,4 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native"
+import { Pressable, StyleSheet, Text, View } from "react-native"
 import React, { useMemo } from "react"
 import { BottomSheetModal, BottomSheetView } from "@gorhom/bottom-sheet"
 import CustomBackdrop from "./CustomBackdrop"
@@ -8,6 +8,7 @@ import SectionView from "./SectionView"
 import CommonFilterRow from "./CommonFilterRow"
 import { data, filtersProps } from "@/constants/data"
 import ColorFilter from "./ColorFilter"
+import Animated, { FadeInDown } from "react-native-reanimated"
 
 type FilterKeys = keyof filtersProps
 
@@ -34,14 +35,19 @@ const FiltersModal = ({
 				<View style={styles.content}>
 					<Text style={styles.filterText}>Filters</Text>
 
-					{Object.keys(sections).map((sectionName) => {
+					{Object.keys(sections).map((sectionName, index) => {
 						const sectionKeys = sectionName as FilterKeys
 						let sectionView = sections[sectionName]
 						let sectionData = data.filters[sectionKeys]
 						let title = capitalize(sectionName)
 
 						return (
-							<View key={sectionName}>
+							<Animated.View
+								key={sectionName}
+								entering={FadeInDown.delay(index * 100 + 100)
+									.springify()
+									.damping(11)}
+							>
 								<SectionView
 									title={title}
 									content={sectionView({
@@ -51,11 +57,14 @@ const FiltersModal = ({
 										filterName: sectionName,
 									})}
 								/>
-							</View>
+							</Animated.View>
 						)
 					})}
 
-					<View style={styles.buttons}>
+					<Animated.View
+						entering={FadeInDown.delay(500).springify().damping(11)}
+						style={styles.buttons}
+					>
 						<Pressable style={styles.resetButton} onPress={onReset}>
 							<Text
 								style={[
@@ -72,7 +81,7 @@ const FiltersModal = ({
 								Apply
 							</Text>
 						</Pressable>
-					</View>
+					</Animated.View>
 				</View>
 			</BottomSheetView>
 		</BottomSheetModal>
