@@ -61,7 +61,11 @@ const HomeScreen = () => {
 		clearSearch()
 		setImages([])
 		page = 1
-		let params: fetchImagesParamsProps = { page }
+		let params: fetchImagesParamsProps = {
+			page,
+			// @ts-ignore
+			...filters,
+		}
 
 		if (cat) params.category = cat
 
@@ -75,7 +79,15 @@ const HomeScreen = () => {
 			page = 1
 			setImages([])
 			setActiveCategory(null)
-			fetchImages({ page, q: text })
+			fetchImages(
+				{
+					page,
+					q: text,
+					// @ts-ignore
+					...filters,
+				},
+				false
+			)
 		}
 
 		if (text === "") {
@@ -83,7 +95,14 @@ const HomeScreen = () => {
 			searchInputRef?.current?.clear()
 			setImages([])
 			setActiveCategory(null)
-			fetchImages({ page }, false)
+			fetchImages(
+				{
+					page,
+					// @ts-ignore
+					...filters,
+				},
+				false
+			)
 		}
 	}
 
@@ -99,12 +118,41 @@ const HomeScreen = () => {
 	const closeFilterModal = () => modalRef?.current?.close()
 
 	const applyFilters = () => {
-		console.log("Applying filters")
+		if (filters) {
+			page = 1
+			setImages([])
+			let params = {
+				page,
+				// @ts-ignore
+				...filters,
+			}
+
+			if (activeCategory) params.category = activeCategory
+			if (search) params.q = search
+
+			fetchImages(params, false)
+		}
+
 		closeFilterModal()
 	}
 
 	const resetFilters = () => {
-		console.log("Reseting filters")
+		if (filters) {
+			page = 1
+			setFilters(null)
+			setImages([])
+			let params = {
+				page,
+			}
+
+			// @ts-ignore
+			if (activeCategory) params.category = activeCategory
+			// @ts-ignore
+			if (search) params.q = search
+
+			fetchImages(params, false)
+		}
+
 		closeFilterModal()
 	}
 

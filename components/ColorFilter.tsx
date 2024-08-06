@@ -1,9 +1,8 @@
 import { Pressable, StyleSheet, Text, View } from "react-native"
 import React from "react"
-import { capitalize } from "@/helpers/common"
 import { theme } from "@/constants/theme"
 
-const CommonFilterRow = ({ data, filterName, filters, setFilters }: any) => {
+const ColorFilter = ({ data, filterName, filters, setFilters }: any) => {
 	const onSelect = (item: any) => {
 		setFilters({ ...filters, [filterName]: item })
 	}
@@ -14,18 +13,13 @@ const CommonFilterRow = ({ data, filterName, filters, setFilters }: any) => {
 				data.map((item: any) => {
 					if (item) {
 						let isActive = filters && filters[filterName] === item
-						let backgroundColor = isActive ? theme.colors.neutral(0.7) : "white"
-						let color = isActive ? "white" : theme.colors.neutral(0.7)
+						let borderColor = isActive ? theme.colors.neutral(0.4) : "white"
 
 						return (
-							<Pressable
-								key={item}
-								onPress={() => onSelect(item)}
-								style={[styles.outlineButton, { backgroundColor }]}
-							>
-								<Text style={[styles.outlineButtonText, { color }]}>
-									{capitalize(item)}
-								</Text>
+							<Pressable key={item} onPress={() => onSelect(item)}>
+								<View style={[styles.colorWrapper, { borderColor }]}>
+									<View style={[styles.color, { backgroundColor: item }]} />
+								</View>
 							</Pressable>
 						)
 					} else {
@@ -46,15 +40,20 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		gap: 10,
 	},
-	outlineButton: {
-		padding: 8,
-		paddingHorizontal: 14,
-		borderWidth: 1,
-		borderColor: theme.colors.grayBG,
-		borderRadius: theme.radius.xs,
+	colorWrapper: {
+		padding: 3,
+		borderRadius: theme.radius.sm,
+		borderWidth: 2,
 		borderCurve: "continuous",
 	},
-	outlineButtonText: {},
+	color: {
+		height: 30,
+		width: 40,
+		borderRadius: theme.radius.sm - 3,
+		borderCurve: "continuous",
+		borderWidth: 1,
+		borderColor: theme.colors.neutral(0.5),
+	},
 })
 
-export default CommonFilterRow
+export default ColorFilter

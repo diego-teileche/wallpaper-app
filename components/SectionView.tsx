@@ -13,7 +13,7 @@ const SectionView: React.FC<SectionViewProps> = ({ title, content }) => {
 		<View style={styles.sectionContainer}>
 			<Text style={styles.sectionTitle}>{title}</Text>
 
-			<View style={styles.sectionContent}>{content}</View>
+			<View>{content}</View>
 		</View>
 	)
 }
@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
 		fontWeight: theme.fontWeights.medium,
 		color: theme.colors.neutral(0.8),
 	},
-	sectionContent: {},
 })
 
 export default SectionView
