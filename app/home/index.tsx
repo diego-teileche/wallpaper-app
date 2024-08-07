@@ -281,7 +281,7 @@ const HomeScreen = () => {
 							showsHorizontalScrollIndicator={false}
 							contentContainerStyle={styles.filters}
 						>
-							{Object.keys(filters).map((key, index) => {
+							{Object.keys(filters).map((key) => {
 								return (
 									<View key={key} style={styles.filterItem}>
 										{key === "colors" ? (
