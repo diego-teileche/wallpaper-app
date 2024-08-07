@@ -35,8 +35,10 @@ const HomeScreen = () => {
 	const [activeCategory, setActiveCategory] = useState(null)
 	const [images, setImages] = useState<any>([])
 	const [filters, setFilters] = useState(null)
+	const [isEndReached, setIsEndReached] = useState(false)
 	const searchInputRef = useRef<TextInput>(null)
 	const modalRef = useRef<any>(null)
+	const scrollRef = useRef<any>(null)
 
 	useEffect(() => {
 		fetchImages()
@@ -44,7 +46,7 @@ const HomeScreen = () => {
 
 	const fetchImages = async (
 		params: fetchImagesParamsProps = { page: 1 },
-		append = false
+		append = true
 	) => {
 		let res = await apiCall(params)
 
@@ -175,13 +177,46 @@ const HomeScreen = () => {
 		fetchImages(params, false)
 	}
 
+	const handleScroll = (event: any) => {
+		const contentHeight = event.nativeEvent.contentSize.height
+		const scrollViewHeight = event.nativeEvent.layoutMeasurement.height
+		const scrollOffset = event.nativeEvent.contentOffset.y
+		const bottomPosition = contentHeight - scrollViewHeight
+
+		if (scrollOffset >= bottomPosition - 1) {
+			if (!isEndReached) {
+				setIsEndReached(true)
+				++page
+				let params = {
+					page,
+					// @ts-ignore
+					...filters,
+				}
+
+				if (activeCategory) params.category = activeCategory
+				if (search) params.q = search
+
+				fetchImages(params)
+			}
+		} else if (isEndReached) {
+			setIsEndReached(false)
+		}
+	}
+
+	const handleScrollUp = () => {
+		scrollRef?.current?.scrollTo({
+			y: 0,
+			animated: true,
+		})
+	}
+
 	return (
 		<View style={[styles.container, { paddingTop }]}>
 			<StatusBar style="dark" />
 
 			<View style={styles.header}>
-				<Pressable>
-					<Text style={styles.title}>Pixels</Text>
+				<Pressable onPress={handleScrollUp}>
+					<Text style={styles.title}>Wallpaper</Text>
 				</Pressable>
 
 				<Pressable onPress={openFilterModal}>
@@ -193,7 +228,12 @@ const HomeScreen = () => {
 				</Pressable>
 			</View>
 
-			<ScrollView contentContainerStyle={{ gap: 15 }}>
+			<ScrollView
+				onScroll={handleScroll}
+				scrollEventThrottle={5}
+				ref={scrollRef}
+				contentContainerStyle={{ gap: 15 }}
+			>
 				<View style={styles.searchBar}>
 					<View style={styles.searchIcon}>
 						<Feather
