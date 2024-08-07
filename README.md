@@ -6,6 +6,12 @@ This is a Wallpaper App built by `Diego Tech` by using:
 - Expo
 - TypeScript
 
+<br />
+
+<img src="./assets/images/welcome-readme.jpg" width="300px" height="666px" alt="Welcome screen wallpaper app">
+<img src="./assets/images/home-readme.jpg" width="300px" height="666px" alt="Home screen wallpaper app">
+<img src="./assets/images/modal-readme.jpg" width="300px" height="666px" alt="Modal screen wallpaper app">
+
 ## Libraries I used for this App 🚀
 
 - React Native Reanimated
