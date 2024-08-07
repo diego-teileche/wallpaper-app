@@ -37,7 +37,7 @@ const WelcomeScreen = () => {
 						entering={FadeInDown.delay(400).springify()}
 						style={styles.title}
 					>
-						Pixels
+						Wallpaper
 					</Animated.Text>
 					<Animated.Text
 						entering={FadeInDown.delay(500).springify()}
@@ -48,7 +48,7 @@ const WelcomeScreen = () => {
 
 					<Animated.View entering={FadeInDown.delay(600).springify()}>
 						<Pressable
-							onPress={() => router.push("home")}
+							onPress={() => router.push("/home")}
 							style={styles.startButton}
 						>
 							<Text style={styles.startText}>Start Explore</Text>

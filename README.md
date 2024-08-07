@@ -18,6 +18,8 @@ This is a Wallpaper App built by `Diego Tech` by using:
 - Lodash
 - React Native Bottom Sheet
 - Expo Blur
+- Expo File System
+- Expo Sharing
 
 ### One Message for EveryOne 🔥
 
