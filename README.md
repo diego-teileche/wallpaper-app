@@ -9,9 +9,9 @@ This is a Wallpaper App built by `Diego Tech` by using:
 <br />
 
 <div align="center">
-  <img src="./assets/images/welcome-readme.jpg" width="75px" height="166px" align="left" alt="Welcome screen wallpaper app">
-  <img src="./assets/images/home-readme.jpg" width="75px" height="166px" align="center" alt="Home screen wallpaper app">
-  <img src="./assets/images/modal-readme.jpg" width="75px" height="166px" align="right" alt="Modal screen wallpaper app">
+  <img src="./assets/images/welcome-readme.jpg" width="200px" height="444px" align="left" alt="Welcome screen wallpaper app">
+  <img src="./assets/images/home-readme.jpg" width="200px" height="444px" align="center" alt="Home screen wallpaper app">
+  <img src="./assets/images/modal-readme.jpg" width="200px" height="444px" align="right" alt="Modal screen wallpaper app">
 </div>
 
 <br />
