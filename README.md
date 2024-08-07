@@ -20,6 +20,7 @@ This is a Wallpaper App built by `Diego Tech` by using:
 - Expo Blur
 - Expo File System
 - Expo Sharing
+- React Native Toast Message
 
 ### One Message for EveryOne 🔥
 
