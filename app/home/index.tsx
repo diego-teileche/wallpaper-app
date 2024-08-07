@@ -18,6 +18,7 @@ import { apiCall } from "@/api"
 import ImageGrid from "@/components/ImageGrid"
 import { debounce } from "lodash"
 import FiltersModal from "@/components/FiltersModal"
+import { useRouter } from "expo-router"
 
 interface fetchImagesParamsProps {
 	page: number
@@ -31,6 +32,7 @@ const HomeScreen = () => {
 	const { top } = useSafeAreaInsets()
 	const paddingTop = top > 0 ? top + 10 : 30
 
+	const router = useRouter()
 	const [search, setSearch] = useState("")
 	const [activeCategory, setActiveCategory] = useState(null)
 	const [images, setImages] = useState<any>([])
@@ -312,7 +314,9 @@ const HomeScreen = () => {
 					</View>
 				)}
 
-				<View>{images.length > 0 && <ImageGrid images={images} />}</View>
+				<View>
+					{images.length > 0 && <ImageGrid images={images} router={router} />}
+				</View>
 
 				<View
 					style={{ marginBottom: 70, marginTop: images.length > 0 ? 10 : 70 }}
