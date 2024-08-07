@@ -12,6 +12,8 @@ This is a Wallpaper App built by `Diego Tech` by using:
 <img src="./assets/images/home-readme.jpg" width="200px" height="444px" align="center" alt="Home screen wallpaper app">
 <img src="./assets/images/modal-readme.jpg" width="200px" height="444px" align="right" alt="Modal screen wallpaper app">
 
+<br />
+
 ## Libraries I used for this App 🚀
 
 - React Native Reanimated
