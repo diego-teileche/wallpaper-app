@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet, View } from "react-native"
 import React from "react"
 import { MasonryFlashList } from "@shopify/flash-list"
 import ImageCard from "./ImageCard"

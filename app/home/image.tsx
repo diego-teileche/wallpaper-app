@@ -1,7 +1,6 @@
 import {
 	ActivityIndicator,
 	Alert,
-	Button,
 	Platform,
 	Pressable,
 	StyleSheet,

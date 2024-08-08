@@ -31,6 +31,7 @@ This is a Wallpaper App built by `Diego Tech` by using:
 - Expo File System
 - Expo Sharing
 - React Native Toast Message
+- Expo Doctor
 
 ### One Message for EveryOne 🔥
 

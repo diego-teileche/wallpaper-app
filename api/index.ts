@@ -1,7 +1,6 @@
-import { EXPO_API_KEY } from "@env"
 import axios from "axios"
 
-const apiUrl = `https://pixabay.com/api/?key=${EXPO_API_KEY}`
+const apiUrl = `https://pixabay.com/api/?key=${process.env.EXPO_API_KEY}`
 
 const formatUrl = (params: any) => {
 	let url = apiUrl + "&per_page=25&safesearch=true&editors_choice=true"
