@@ -1,4 +1,4 @@
-# About the app 📱
+# About the app <img src="./assets/images/icon.png" width="40px" height="40px" align="center" alt="SaaS Landing Page Logo | Diego Tech" />
 
 This is a Wallpaper App built by `Diego Tech` by using:
 
@@ -8,11 +8,9 @@ This is a Wallpaper App built by `Diego Tech` by using:
 
 <br />
 
-<div align="center">
-  <img src="./assets/images/welcome-readme.jpg" width="200px" height="444px" align="left" alt="Welcome screen wallpaper app">
-  <img src="./assets/images/home-readme.jpg" width="200px" height="444px" align="center" alt="Home screen wallpaper app">
-  <img src="./assets/images/modal-readme.jpg" width="200px" height="444px" align="right" alt="Modal screen wallpaper app">
-</div>
+<img src="./assets/images/readme/wall1.webp" width="600px" height="293px" alt="Wallpaper App | Diego Tech | Image 1" />
+<img src="./assets/images/readme/wall2.webp" width="600px" height="293px" alt="Wallpaper App | Diego Tech | Image 2" />
+<img src="./assets/images/readme/wall3.webp" width="600px" height="293px" alt="Wallpaper App | Diego Tech | Image 3" />
 
 <br />
 
